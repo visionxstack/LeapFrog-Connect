@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,700;6..72,800&amp;family=Public+Sans:wght@300;400;500;600;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#f1edef",
+                        "inverse-on-surface": "#f4f0f2",
+                        "outline": "#78767d",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed": "#f2e1b7",
+                        "primary-fixed-dim": "#c6c4df",
+                        "on-primary-container": "#83829b",
+                        "outline-variant": "#c8c5cd",
+                        "on-tertiary": "#ffffff",
+                        "on-background": "#1c1b1d",
+                        "surface-variant": "#e5e1e3",
+                        "surface-container-high": "#ebe7e9",
+                        "surface-container-low": "#f6f2f4",
+                        "on-primary-fixed": "#1a1a2e",
+                        "on-primary-fixed-variant": "#45455b",
+                        "secondary-fixed-dim": "#c0c7d6",
+                        "secondary": "#585f6c",
+                        "error": "#ba1a1a",
+                        "surface-container-highest": "#e5e1e3",
+                        "on-primary": "#ffffff",
+                        "on-secondary-container": "#5e6572",
+                        "surface-dim": "#ddd9db",
+                        "secondary-fixed": "#dce2f3",
+                        "primary": "#00000b",
+                        "background": "#fcf8fa",
+                        "surface": "#fcf8fa",
+                        "inverse-primary": "#c6c4df",
+                        "surface-tint": "#5d5c74",
+                        "secondary-container": "#dce2f3",
+                        "on-tertiary-fixed-variant": "#514627",
+                        "on-secondary-fixed-variant": "#404754",
+                        "tertiary": "#695d3c",
+                        "tertiary-container": "#b9aa83",
+                        "surface-bright": "#fcf8fa",
+                        "on-error-container": "#93000a",
+                        "on-error": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface": "#1c1b1d",
+                        "on-surface-variant": "#47464c",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-fixed": "#231b02",
+                        "tertiary-fixed-dim": "#d5c59d",
+                        "primary-fixed": "#e2e0fc",
+                        "on-tertiary-container": "#493f20",
+                        "primary-container": "#1a1a2e",
+                        "on-secondary-fixed": "#151c27",
+                        "inverse-surface": "#313032"
+                    },
+                    "fontFamily": {
+                        "headline": ["Newsreader"],
+                        "display": ["Newsreader"],
+                        "body": ["Public Sans"],
+                        "label": ["Public Sans"]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Public Sans', sans-serif;
+        }
+
+        .font-serif {
+            font-family: 'Newsreader', serif;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+
+<body class="bg-surface text-on-surface">
+    <div id="sidebar-container"></div>
+    <div id="navbar-container"></div>
+    <!-- Main Content Shell -->
+    <main id="main-content" class="ml-64 pt-16 min-h-screen transition-all">
+        <!-- Content Canvas -->
+        <div class="max-w-[1200px] mx-auto px-10 py-12">
+            <!-- Page Header -->
+            <div class="mb-12">
+                <div
+                    class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-container text-secondary text-xs font-bold tracking-widest uppercase mb-4">
+                    <span class="material-symbols-outlined text-sm"
+                        style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+                    Powered by Claude
+                </div>
+                <h1 class="text-4xl font-extrabold text-[#1A1A2E] font-serif tracking-tight">AI Skill Gap Analyzer</h1>
+                <p class="text-slate-500 mt-2 text-lg">Compare your professional profile against top industry job
+                    requirements to identify key growth areas.</p>
+            </div>
+            <!-- Analysis Input Section (Bento Style) -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+                <div
+                    class="lg:col-span-2 bg-white p-8 rounded-xl border border-gray-100 shadow-[0_2px_8px_rgba(0,0,0,0.07)]">
+                    <h2 class="text-lg font-bold text-[#1A1A2E] mb-6 flex items-center gap-2">
+                        <span class="material-symbols-outlined">description</span>
+                        Step 1: Select Target Role
+                    </h2>
+                    <div class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">Job Description</label>
+                            <select
+                                class="w-full bg-white border border-gray-200 rounded-lg p-3 text-on-surface focus:border-[#1A1A2E] focus:ring-1 focus:ring-[#1A1A2E] transition-colors">
+                                <option>Senior Full Stack Engineer - Fintech Division</option>
+                                <option>Data Scientist II - Machine Learning Ops</option>
+                                <option>Product Manager - E-commerce Growth</option>
+                                <option>Cloud Architect - AWS Specialist</option>
+                            </select>
+                        </div>
+                        <div class="p-6 bg-slate-50 rounded-lg border border-dashed border-gray-300">
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="text-sm font-bold text-slate-600">Selected Role Highlights</span>
+                                <span
+                                    class="px-2 py-1 bg-green-100 text-green-700 text-[10px] font-black uppercase rounded">High
+                                    Demand</span>
+                            </div>
+                            <p class="text-sm text-slate-500 leading-relaxed italic">
+                                "Seeking a proficient engineer to lead architecture for high-frequency trading
+                                platforms. Requires deep expertise in React, Node.js, and Dockerized environments..."
+                            </p>
+                        </div>
+                        <button id="analyze-btn"
+                            class="w-full bg-[#1A1A2E] text-white py-4 rounded-lg font-bold flex items-center justify-center gap-2 hover:bg-black transition-colors shadow-lg active:scale-[0.98]">
+                            <span class="material-symbols-outlined">analytics</span>
+                            Analyze My Gap
+                        </button>
+                    </div>
+                </div>
+                <!-- Secondary Card: Profile Snapshot -->
+                <div
+                    class="bg-[#1A1A2E] text-white p-8 rounded-xl shadow-lg relative overflow-hidden flex flex-col justify-between">
+                    <div class="absolute top-0 right-0 p-4 opacity-10">
+                        <span class="material-symbols-outlined text-9xl">account_circle</span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold font-serif mb-2">My Profile</h3>
+                        <p class="text-slate-400 text-sm mb-6">Last updated 2 days ago</p>
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-3">
+                                <span class="w-2 h-2 rounded-full bg-green-400"></span>
+                                <span class="text-sm">Verified Resume</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <span class="w-2 h-2 rounded-full bg-blue-400"></span>
+                                <span class="text-sm">5 Certifications</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-8">
+                        <button
+                            class="w-full border border-slate-700 py-2 rounded font-medium text-sm hover:bg-slate-800 transition-colors">Edit
+                            Profile</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Result Section -->
+            <div id="analysis-result-section" class="hidden space-y-8 mt-12">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+                    <!-- Gauge Card -->
+                    <div
+                        class="md:col-span-4 bg-white p-8 rounded-xl border border-gray-100 shadow-[0_2px_8px_rgba(0,0,0,0.07)] flex flex-col items-center justify-center text-center">
+                        <h3 class="text-sm font-black uppercase tracking-widest text-slate-400 mb-8">Match Percentage
+                        </h3>
+                        <div class="relative w-48 h-48 flex items-center justify-center">
+                            <svg class="w-full h-full transform -rotate-90">
+                                <circle class="text-slate-100" cx="96" cy="96" fill="transparent" r="88"
+                                    stroke="currentColor" stroke-width="12"></circle>
+                                <circle class="text-[#E63946]" cx="96" cy="96" fill="transparent" r="88"
+                                    stroke="currentColor" stroke-dasharray="552.92" stroke-dashoffset="121.64"
+                                    stroke-width="12"></circle>
+                            </svg>
+                            <div class="absolute flex flex-col">
+                                <span class="text-5xl font-black text-[#1A1A2E]">78%</span>
+                                <span class="text-xs font-bold text-slate-400">Strong Match</span>
+                            </div>
+                        </div>
+                        <p class="mt-8 text-sm text-slate-500 px-4">You are highly compatible with this role. Closing 2
+                            critical gaps will place you in the top 5% of candidates.</p>
+                    </div>
+                    <!-- Comparison Lists -->
+                    <div class="md:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-8">
+                        <!-- You Have -->
+                        <div class="bg-white p-8 rounded-xl border border-gray-100 shadow-[0_2px_8px_rgba(0,0,0,0.07)]">
+                            <div class="flex items-center gap-3 mb-6">
+                                <div class="w-10 h-10 rounded-full bg-green-50 flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-green-600">check_circle</span>
+                                </div>
+                                <h3 class="font-bold text-[#1A1A2E]">You Have</h3>
+                            </div>
+                            <ul class="space-y-4">
+                                <li class="flex items-center justify-between">
+                                    <span class="text-sm text-slate-600 font-medium">React.js</span>
+                                    <span
+                                        class="text-[10px] font-bold text-green-600 bg-green-50 px-2 py-0.5 rounded">Expert</span>
+                                </li>
+                                <li class="flex items-center justify-between">
+                                    <span class="text-sm text-slate-600 font-medium">Node.js</span>
+                                    <span
+                                        class="text-[10px] font-bold text-green-600 bg-green-50 px-2 py-0.5 rounded">Intermediate</span>
+                                </li>
+                                <li class="flex items-center justify-between">
+                                    <span class="text-sm text-slate-600 font-medium">SQL / PostgreSQL</span>
+                                    <span
+                                        class="text-[10px] font-bold text-green-600 bg-green-50 px-2 py-0.5 rounded">Expert</span>
+                                </li>
+                                <li class="flex items-center justify-between">
+                                    <span class="text-sm text-slate-600 font-medium">Tailwind CSS</span>
+                                    <span
+                                        class="text-[10px] font-bold text-green-600 bg-green-50 px-2 py-0.5 rounded">Expert</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- You're Missing -->
+                        <div class="bg-white p-8 rounded-xl border border-gray-100 shadow-[0_2px_8px_rgba(0,0,0,0.07)]">
+                            <div class="flex items-center gap-3 mb-6">
+                                <div class="w-10 h-10 rounded-full bg-red-50 flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-[#E63946]">cancel</span>
+                                </div>
+                                <h3 class="font-bold text-[#1A1A2E]">You're Missing</h3>
+                            </div>
+                            <ul class="space-y-4">
+                                <li class="flex items-center justify-between">
+                                    <span class="text-sm text-slate-600 font-medium text-opacity-80">Docker &amp;
+                                        Kubernetes</span>
+                                    <span class="material-symbols-outlined text-slate-300 text-sm">trending_up</span>
+                                </li>
+                                <li class="flex items-center justify-between">
+                                    <span class="text-sm text-slate-600 font-medium text-opacity-80">AWS Cloud
+                                        Services</span>
+                                    <span class="material-symbols-outlined text-slate-300 text-sm">trending_up</span>
+                                </li>
+                                <li class="flex items-center justify-between">
+                                    <span class="text-sm text-slate-600 font-medium text-opacity-80">GraphQL</span>
+                                    <span class="material-symbols-outlined text-slate-300 text-sm">trending_up</span>
+                                </li>
+                                <li class="flex items-center justify-between">
+                                    <span class="text-sm text-slate-600 font-medium text-opacity-80">Unit Testing
+                                        (Jest)</span>
+                                    <span class="material-symbols-outlined text-slate-300 text-sm">trending_up</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- AI Feedback Text Box -->
+                <div class="bg-surface-container-low p-8 rounded-xl border border-gray-200 relative">
+                    <div
+                        class="absolute -top-4 left-8 bg-[#1A1A2E] text-white px-4 py-1.5 rounded-full text-xs font-bold flex items-center gap-2">
+                        <span class="material-symbols-outlined text-sm">auto_awesome</span>
+                        Claude's Strategic Advice
+                    </div>
+                    <div class="flex gap-6 items-start">
+                        <div
+                            class="flex-shrink-0 w-12 h-12 rounded-xl bg-white flex items-center justify-center shadow-sm">
+                            <span class="material-symbols-outlined text-[#1A1A2E]">psychology</span>
+                        </div>
+                        <div class="space-y-4">
+                            <p class="text-slate-700 leading-relaxed">
+                                Your technical foundation in JavaScript and frontend frameworks is exceptional. However,
+                                the <span class="font-bold text-[#1A1A2E]">Senior level</span> role you've selected
+                                requires infrastructure awareness. Specifically, the fintech sector values <span
+                                    class="font-bold">containerization (Docker)</span> for secure, consistent
+                                deployments.
+                            </p>
+                            <p class="text-slate-700 leading-relaxed">
+                                <span class="italic">Recommendation:</span> Prioritize a Docker certification within the
+                                next 30 days. This single addition to your profile will increase your match rate to
+                                approximately <span class="text-green-600 font-bold">89%</span>.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Recommended Courses Section -->
+                <div>
+                    <div class="flex items-center justify-between mb-6">
+                        <h3 class="text-xl font-bold font-serif text-[#1A1A2E]">Recommended Bridge Courses</h3>
+                        <a class="text-sm font-bold text-[#E63946] hover:underline" href="#">View All Learning Paths</a>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <!-- Course 1 -->
+                        <div
+                            class="group bg-white rounded-xl overflow-hidden border border-gray-100 shadow-[0_2px_8px_rgba(0,0,0,0.07)] hover:shadow-xl transition-shadow">
+                            <div class="h-32 bg-slate-100 overflow-hidden relative">
+                                <img alt="Docker Training"
+                                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                    data-alt="close-up of a computer screen showing docker containers and code in a dark mode code editor with neon accents"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLf9fyKUNeELRbKqXFj_SRk7DfraJIzpM8-2oNbfzNohFwSQIMAfvf6DYMWjglKHvryOuGCPTS91kNffXzuDQM2uZWsS2hlNyiM7c9iCKXRn-DXqe91Y80RQTdlp36ZNIbTY4znR4wro9i-GGlKmyHwXN1nA-MIxsXdnxE22O-3rMqE-Vh_ljaks5lsDFDUyZ9i3JjCV2CT_6FKxg5VpShF0AMD7-Gx-Plie_4utmeL15oPivQLspabXiQoJ7r9DM8R4F3ZS7YYKA" />
+                                <div
+                                    class="absolute top-2 left-2 px-2 py-1 bg-[#E63946] text-white text-[10px] font-bold rounded">
+                                    High Impact</div>
+                            </div>
+                            <div class="p-6">
+                                <h4 class="font-bold text-[#1A1A2E] mb-2 leading-tight">Mastering Docker for DevOps
+                                    Engineers</h4>
+                                <div class="flex items-center gap-2 text-xs text-slate-500 mb-4">
+                                    <span class="material-symbols-outlined text-sm">schedule</span> 12 Hours
+                                    <span class="material-symbols-outlined text-sm ml-2">star</span> 4.9
+                                </div>
+                                <button
+                                    class="w-full py-2 border border-[#1A1A2E] text-[#1A1A2E] rounded font-bold text-sm hover:bg-[#1A1A2E] hover:text-white transition-colors">Enroll
+                                    Now</button>
+                            </div>
+                        </div>
+                        <!-- Course 2 -->
+                        <div
+                            class="group bg-white rounded-xl overflow-hidden border border-gray-100 shadow-[0_2px_8px_rgba(0,0,0,0.07)] hover:shadow-xl transition-shadow">
+                            <div class="h-32 bg-slate-100 overflow-hidden relative">
+                                <img alt="Cloud Architect"
+                                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                    data-alt="abstract digital representation of cloud computing nodes and network connections with glowing blue lines on a dark background"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXmXFxKbsmRIHawCgDfmpJ59cxTr59RLKlHS8pjMoWbvLFfR057GEYqm6zRlFzK36dZQ3MzzR7JZE9FBWRAKvOXvaipex8OGmGtDPsIw5xazNNwINDsaZB03CkEs_BVOk1Wpwzpo3OBsk8XroMpFjBYwOw70xQBBBywvKXo4LS9EX7s1DABwU7nxNuqkDL7Kp3jWCA2q2juNIHM4ekVOrxt2aTowZp8AQu6hEdheK7TBCc5yAMBAsbh6vVC2fQZzQ-7lLW1Z90LiU" />
+                                <div
+                                    class="absolute top-2 left-2 px-2 py-1 bg-[#1A1A2E] text-white text-[10px] font-bold rounded">
+                                    Skill Gap</div>
+                            </div>
+                            <div class="p-6">
+                                <h4 class="font-bold text-[#1A1A2E] mb-2 leading-tight">AWS Cloud Practitioner: The
+                                    Complete Guide</h4>
+                                <div class="flex items-center gap-2 text-xs text-slate-500 mb-4">
+                                    <span class="material-symbols-outlined text-sm">schedule</span> 24 Hours
+                                    <span class="material-symbols-outlined text-sm ml-2">star</span> 4.8
+                                </div>
+                                <button
+                                    class="w-full py-2 border border-[#1A1A2E] text-[#1A1A2E] rounded font-bold text-sm hover:bg-[#1A1A2E] hover:text-white transition-colors">Enroll
+                                    Now</button>
+                            </div>
+                        </div>
+                        <!-- Course 3 -->
+                        <div
+                            class="group bg-white rounded-xl overflow-hidden border border-gray-100 shadow-[0_2px_8px_rgba(0,0,0,0.07)] hover:shadow-xl transition-shadow">
+                            <div class="h-32 bg-slate-100 overflow-hidden relative">
+                                <img alt="GraphQL Training"
+                                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                    data-alt="top view of a professional workstation with two monitors showing web development code and a minimalist clean desk setup"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuKP9ntH-fIyMdxQut-5OV_QHnr6zqqF5potcB-g27RmyWd4AAdh--7ayuCCS0u893xHAuYbVfwuGvCKmPI3KObEQLKU8ixYlvuMW85HVA0Tg_Q-Zc7wE1reAT7eI4qRRy6PJUxTQtzdTxAmjv3rsv_glcBj2iYGQNSScaTsIYK96K-8m4uPaWhD6n5nB5Fl2WVEeKnJ8lEwdstx_tyK-Bo6o4ju54SCrUidJ0gsqXS3-UDXz0ijjSaijPYFekw64re03p_gOkVcE" />
+                                <div
+                                    class="absolute top-2 left-2 px-2 py-1 bg-slate-100 text-slate-600 text-[10px] font-bold rounded">
+                                    Optional</div>
+                            </div>
+                            <div class="p-6">
+                                <h4 class="font-bold text-[#1A1A2E] mb-2 leading-tight">Advanced API Design with GraphQL
+                                </h4>
+                                <div class="flex items-center gap-2 text-xs text-slate-500 mb-4">
+                                    <span class="material-symbols-outlined text-sm">schedule</span> 8 Hours
+                                    <span class="material-symbols-outlined text-sm ml-2">star</span> 4.7
+                                </div>
+                                <button
+                                    class="w-full py-2 border border-[#1A1A2E] text-[#1A1A2E] rounded font-bold text-sm hover:bg-[#1A1A2E] hover:text-white transition-colors">Enroll
+                                    Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer / Action Area -->
+        <footer
+            class="max-w-[1200px] mx-auto px-10 py-12 border-t border-gray-100 mt-12 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-center md:text-left">
+                <p class="text-sm font-bold text-slate-800">Ready to boost your career score?</p>
+                <p class="text-xs text-slate-500">New gap analysis reports are generated every 24 hours.</p>
+            </div>
+            <div class="flex gap-4">
+                <button
+                    class="flex items-center gap-2 px-6 py-2.5 bg-surface-container text-on-surface text-sm font-bold rounded-lg hover:bg-slate-200 transition-colors">
+                    <span class="material-symbols-outlined text-sm">download</span>
+                    Export PDF Report
+                </button>
+                <button
+                    class="flex items-center gap-2 px-6 py-2.5 bg-[#E63946] text-white text-sm font-bold rounded-lg shadow-md hover:brightness-110 transition-all">
+                    <span class="material-symbols-outlined text-sm">share</span>
+                    Share with Mentor
+                </button>
+            </div>
+        </footer>
+    </main>
+    <script type="module" src="js/router.js"></script>
+    <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/pages/ai-skill-gap.js"></script>
+</body>
+
+</html>
