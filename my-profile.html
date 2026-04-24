@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Student Profile | LeapFrog Connect</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,700&amp;family=Public+Sans:wght@300;400;500;600;700;900&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-bright": "#fcf8fa",
+                        "surface-container-low": "#f6f2f4",
+                        "on-surface-variant": "#47464c",
+                        "on-error-container": "#93000a",
+                        "tertiary": "#695d3c",
+                        "on-primary-fixed-variant": "#45455b",
+                        "on-surface": "#1c1b1d",
+                        "surface-container-highest": "#e5e1e3",
+                        "secondary-fixed": "#dce2f3",
+                        "error-container": "#ffdad6",
+                        "outline-variant": "#c8c5cd",
+                        "on-primary": "#ffffff",
+                        "primary": "#00000b",
+                        "background": "#fcf8fa",
+                        "surface-container-high": "#ebe7e9",
+                        "primary-fixed": "#e2e0fc",
+                        "surface-container": "#f1edef",
+                        "on-tertiary-container": "#493f20",
+                        "error": "#ba1a1a",
+                        "outline": "#78767d",
+                        "on-secondary-fixed": "#151c27",
+                        "surface-variant": "#e5e1e3",
+                        "on-background": "#1c1b1d",
+                        "on-secondary-container": "#5e6572",
+                        "primary-container": "#1a1a2e",
+                        "secondary-container": "#dce2f3",
+                        "surface-dim": "#ddd9db",
+                        "surface-tint": "#5d5c74",
+                        "primary-fixed-dim": "#c6c4df",
+                        "on-tertiary": "#ffffff",
+                        "inverse-surface": "#313032",
+                        "on-tertiary-fixed": "#231b02",
+                        "on-secondary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed-variant": "#404754",
+                        "on-primary-fixed": "#1a1a2e",
+                        "secondary-fixed-dim": "#c0c7d6",
+                        "on-error": "#ffffff",
+                        "inverse-on-surface": "#f4f0f2",
+                        "tertiary-fixed-dim": "#d5c59d",
+                        "on-tertiary-fixed-variant": "#514627",
+                        "surface": "#fcf8fa",
+                        "secondary": "#585f6c",
+                        "tertiary-container": "#b9aa83",
+                        "on-primary-container": "#83829b",
+                        "inverse-primary": "#c6c4df",
+                        "tertiary-fixed": "#f2e1b7"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Newsreader"],
+                        "display": ["Newsreader"],
+                        "body": ["Public Sans"],
+                        "label": ["Public Sans"]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        body {
+            font-family: 'Public Sans', sans-serif;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Newsreader', serif;
+        }
+    </style>
+</head>
+
+<body class="bg-surface-bright text-on-surface">
+    <div id="navbar-container"></div>
+    <div id="sidebar-container"></div>
+    <!-- Main Content Area -->
+    <main id="main-content" class="pt-16 min-h-screen bg-surface-bright transition-all">
+        <div class="max-w-[1200px] mx-auto p-10 grid grid-cols-12 gap-10">
+            <!-- Left Profile Section -->
+            <div class="col-span-8 space-y-10">
+                <!-- Hero Profile Card -->
+                <section
+                    class="bg-white rounded-xl p-8 shadow-[0_2px_8px_rgba(0,0,0,0.07)] border border-slate-100 relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-32 bg-gradient-to-r from-primary-container to-slate-800"
+                        data-alt="Abstract subtle geometric pattern in deep navy and charcoal tones with soft metallic sheen">
+                    </div>
+                    <div class="relative flex items-end gap-6 pt-12">
+                        <div class="relative group">
+                            <img alt="Profile photo"
+                                class="w-32 h-32 rounded-xl border-4 border-white shadow-md object-cover bg-white"
+                                data-alt="Professional headshot of a young Nepalese man with a clean haircut and modern business casual attire, warm lighting"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJqTno1xOXoXqDuueOLCISI4vhStG3o2SKo6P3Ad6Q71wlkG2ydo1VTEy891wnQc90dqNTC93jPjThu3Uq8gZA3gHcmY3E5mdgQRoo10WcFFuWXF6x4zc9N3Le3iIJvIsvhVDjkAXDXUuJyhEm3jGkUNyvsl2sdR77hoz2-JKPUAKbCOQj5uiKHuBadcYO139l7u-GvWl1UWk9_qId-fEopZ_B3U4GIkVIS_B6ttT_kOg3ezTHLHpE_ldu49AuJtnclCFkyR3ezpk" />
+                            <button
+                                class="absolute bottom-2 right-2 bg-white p-1.5 rounded-lg shadow-sm border border-slate-200 text-slate-600 hover:text-primary transition-colors">
+                                <span class="material-symbols-outlined text-sm" data-icon="edit">edit</span>
+                            </button>
+                        </div>
+                        <div class="mb-2">
+                            <h2 id="profile-name" class="text-3xl font-bold text-slate-900">Aayush Shrestha</h2>
+                            <p id="profile-role" class="text-slate-600 font-medium capitalize">Student</p>
+                            <div class="flex items-center gap-4 mt-2 text-slate-400 text-sm">
+                                <span class="flex items-center gap-1">
+                                    <span class="material-symbols-outlined text-base"
+                                        data-icon="location_on">location_on</span>
+                                    Kathmandu, Nepal
+                                </span>
+                                <span class="flex items-center gap-1">
+                                    <span class="material-symbols-outlined text-base" data-icon="mail">mail</span>
+                                    <span id="profile-email">aayush.shrestha@example.edu</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- About Section -->
+                <section class="bg-white rounded-xl p-8 shadow-[0_2px_8px_rgba(0,0,0,0.07)] border border-slate-100">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-xl font-bold text-slate-900">About</h3>
+                        <div class="flex gap-3">
+                            <button
+                                class="flex items-center gap-2 bg-primary-container text-white px-4 py-2 rounded-lg text-sm font-semibold hover:opacity-90 transition-opacity">
+                                <span class="material-symbols-outlined text-base"
+                                    data-icon="auto_awesome">auto_awesome</span>
+                                Generate with AI
+                            </button>
+                            <button class="p-2 text-slate-400 hover:text-primary transition-colors">
+                                <span class="material-symbols-outlined" data-icon="edit">edit</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div id="profile-bio" class="prose prose-slate max-w-none text-slate-600 leading-relaxed">
+                        <p>Highly motivated student with a focus on modern web technologies. Passionate
+                            about building scalable applications and solving complex architectural problems. Currently
+                            honing skills through academic projects and
+                            independent learning.</p>
+                    </div>
+                </section>
+                <!-- Education Section -->
+                <section class="bg-white rounded-xl p-8 shadow-[0_2px_8px_rgba(0,0,0,0.07)] border border-slate-100">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-xl font-bold text-slate-900">Education</h3>
+                        <button class="p-2 text-slate-400 hover:text-primary transition-colors">
+                            <span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+                        </button>
+                    </div>
+                    <div class="space-y-8">
+                        <div class="flex gap-4">
+                            <div
+                                class="w-12 h-12 bg-slate-50 rounded-lg flex items-center justify-center border border-slate-100 shrink-0">
+                                <span class="material-symbols-outlined text-slate-400"
+                                    data-icon="account_balance">account_balance</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900">B.Sc. in Computer Science</h4>
+                                <p class="text-slate-600">Tribhuvan University, Institute of Science and Technology</p>
+                                <p class="text-sm text-slate-400 mt-1">2021 — 2025 (Expected)</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- Work Experience -->
+                <section class="bg-white rounded-xl p-8 shadow-[0_2px_8px_rgba(0,0,0,0.07)] border border-slate-100">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-xl font-bold text-slate-900">Work Experience</h3>
+                        <button class="p-2 text-slate-400 hover:text-primary transition-colors">
+                            <span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+                        </button>
+                    </div>
+                    <div class="space-y-8">
+                        <div class="flex gap-4 relative">
+                            <div class="absolute left-6 top-12 bottom-0 w-[1px] bg-slate-100"></div>
+                            <div
+                                class="w-12 h-12 bg-slate-50 rounded-lg flex items-center justify-center border border-slate-100 shrink-0 z-10">
+                                <span class="material-symbols-outlined text-slate-400" data-icon="code">code</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900">Frontend Intern</h4>
+                                <p class="text-slate-600">Nepal Tech Solutions</p>
+                                <p class="text-sm text-slate-400 mt-1">May 2023 — Aug 2023</p>
+                                <p class="mt-3 text-sm text-slate-500 leading-relaxed">Assisted in developing user
+                                    interface components using React and Tailwind CSS. Participated in daily stand-ups
+                                    and code review sessions.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- Skills Section -->
+                <section class="bg-white rounded-xl p-8 shadow-[0_2px_8px_rgba(0,0,0,0.07)] border border-slate-100">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-xl font-bold text-slate-900">Skills</h3>
+                        <button class="p-2 text-slate-400 hover:text-primary transition-colors">
+                            <span class="material-symbols-outlined" data-icon="settings">settings</span>
+                        </button>
+                    </div>
+                    <div class="flex flex-wrap gap-3">
+                        <span
+                            class="px-4 py-2 bg-slate-50 text-slate-600 text-sm font-medium rounded-lg border border-slate-100">JavaScript
+                            (ES6+)</span>
+                        <span
+                            class="px-4 py-2 bg-slate-50 text-slate-600 text-sm font-medium rounded-lg border border-slate-100">React.js</span>
+                        <span
+                            class="px-4 py-2 bg-slate-50 text-slate-600 text-sm font-medium rounded-lg border border-slate-100">Tailwind
+                            CSS</span>
+                        <span
+                            class="px-4 py-2 bg-slate-50 text-slate-600 text-sm font-medium rounded-lg border border-slate-100">Node.js</span>
+                        <span
+                            class="px-4 py-2 bg-slate-50 text-slate-600 text-sm font-medium rounded-lg border border-slate-100">PostgreSQL</span>
+                        <span
+                            class="px-4 py-2 bg-slate-50 text-slate-600 text-sm font-medium rounded-lg border border-slate-100">Git
+                            &amp; GitHub</span>
+                        <span
+                            class="px-4 py-2 bg-slate-50 text-slate-600 text-sm font-medium rounded-lg border border-slate-100">RESTful
+                            APIs</span>
+                    </div>
+                </section>
+                <!-- Certifications Section -->
+                <section class="bg-white rounded-xl p-8 shadow-[0_2px_8px_rgba(0,0,0,0.07)] border border-slate-100">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-xl font-bold text-slate-900">Certifications</h3>
+                        <button class="p-2 text-slate-400 hover:text-primary transition-colors">
+                            <span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+                        </button>
+                    </div>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div
+                            class="flex items-center gap-4 p-4 border border-slate-100 rounded-xl hover:shadow-sm transition-shadow">
+                            <span class="material-symbols-outlined text-tertiary text-3xl" data-icon="verified"
+                                style="font-variation-settings: 'FILL' 1;">verified</span>
+                            <div>
+                                <h4 class="font-bold text-sm text-slate-900 line-clamp-1">Meta Front-End Developer</h4>
+                                <p class="text-xs text-slate-500">Issued Sep 2023</p>
+                            </div>
+                        </div>
+                        <div
+                            class="flex items-center gap-4 p-4 border border-slate-100 rounded-xl hover:shadow-sm transition-shadow">
+                            <span class="material-symbols-outlined text-tertiary text-3xl" data-icon="verified"
+                                style="font-variation-settings: 'FILL' 1;">verified</span>
+                            <div>
+                                <h4 class="font-bold text-sm text-slate-900 line-clamp-1">AWS Certified Cloud
+                                    Practitioner</h4>
+                                <p class="text-xs text-slate-500">Issued Jan 2024</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <!-- Right Sidebar Section -->
+            <div class="col-span-4 space-y-6">
+                <!-- Profile Strength Meter -->
+                <div class="bg-white rounded-xl p-6 shadow-[0_2px_8px_rgba(0,0,0,0.07)] border border-slate-100">
+                    <div class="flex justify-between items-center mb-4">
+                        <h4 class="font-bold text-slate-900">Profile Strength</h4>
+                        <span class="text-primary font-bold">85%</span>
+                    </div>
+                    <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden mb-6">
+                        <div class="bg-primary-container h-full rounded-full" style="width: 85%"></div>
+                    </div>
+                    <div class="space-y-4">
+                        <p class="text-xs text-slate-500 uppercase font-bold tracking-widest">Next Steps</p>
+                        <div class="flex items-center gap-3 text-sm text-slate-600">
+                            <span class="material-symbols-outlined text-slate-300"
+                                data-icon="check_circle">check_circle</span>
+                            <span>Add professional summary</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-sm text-slate-600">
+                            <span class="material-symbols-outlined text-slate-300"
+                                data-icon="check_circle">check_circle</span>
+                            <span>List top 5 skills</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-sm text-slate-900 font-semibold">
+                            <span class="material-symbols-outlined text-primary"
+                                data-icon="radio_button_unchecked">radio_button_unchecked</span>
+                            <span>Add a portfolio link</span>
+                        </div>
+                    </div>
+                    <button
+                        class="w-full mt-8 py-3 px-4 border border-slate-200 text-slate-600 text-sm font-bold rounded-lg hover:bg-slate-50 transition-colors flex items-center justify-center gap-2">
+                        <span class="material-symbols-outlined text-base" data-icon="visibility">visibility</span>
+                        Public Preview
+                    </button>
+                </div>
+                <!-- Career Readiness Card -->
+                <div
+                    class="bg-primary-container text-white rounded-xl p-6 shadow-[0_2px_8px_rgba(0,0,0,0.15)] overflow-hidden relative">
+                    <div class="relative z-10">
+                        <h4 class="font-bold text-lg mb-2">Ready for Hiring?</h4>
+                        <p class="text-slate-400 text-sm mb-6">Complete your profile to get discovered by recruiters in
+                            Kathmandu.</p>
+                        <button
+                            class="w-full py-3 px-4 bg-white text-primary-container text-sm font-bold rounded-lg hover:bg-slate-100 transition-colors">
+                            Enable Career Visibility
+                        </button>
+                    </div>
+                    <span class="material-symbols-outlined absolute -bottom-4 -right-4 text-8xl text-white/5 rotate-12"
+                        data-icon="rocket_launch">rocket_launch</span>
+                </div>
+                <!-- Shared with Section -->
+                <div class="bg-white rounded-xl p-6 shadow-[0_2px_8px_rgba(0,0,0,0.07)] border border-slate-100">
+                    <h4 class="font-bold text-slate-900 mb-4">Profile Analytics</h4>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="text-center p-4 bg-slate-50 rounded-lg">
+                            <p class="text-2xl font-bold text-slate-900">12</p>
+                            <p class="text-[10px] text-slate-500 uppercase tracking-tighter">Views</p>
+                        </div>
+                        <div class="text-center p-4 bg-slate-50 rounded-lg">
+                            <p class="text-2xl font-bold text-slate-900">4</p>
+                            <p class="text-[10px] text-slate-500 uppercase tracking-tighter">Job Matches</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- FAB for quick actions (Contextual to Dashboard/Profile) -->
+    <button
+        class="fixed bottom-8 right-8 w-14 h-14 bg-primary-container text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-105 active:scale-95 transition-transform z-50">
+        <span class="material-symbols-outlined" data-icon="chat_bubble">chat_bubble</span>
+    </button>
+    <script type="module" src="js/router.js"></script>
+    <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/pages/profile.js"></script>
+</body>
+
+</html>
