@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>LeapFrog Connect | Student Dashboard</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Public+Sans:wght@300;400;500;600;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-bright": "#fcf8fa",
+                        "surface-container-low": "#f6f2f4",
+                        "on-surface-variant": "#47464c",
+                        "on-error-container": "#93000a",
+                        "tertiary": "#695d3c",
+                        "on-primary-fixed-variant": "#45455b",
+                        "on-surface": "#1c1b1d",
+                        "surface-container-highest": "#e5e1e3",
+                        "secondary-fixed": "#dce2f3",
+                        "error-container": "#ffdad6",
+                        "outline-variant": "#c8c5cd",
+                        "on-primary": "#ffffff",
+                        "primary": "#00000b",
+                        "background": "#fcf8fa",
+                        "surface-container-high": "#ebe7e9",
+                        "primary-fixed": "#e2e0fc",
+                        "surface-container": "#f1edef",
+                        "on-tertiary-container": "#493f20",
+                        "error": "#ba1a1a",
+                        "outline": "#78767d",
+                        "on-secondary-fixed": "#151c27",
+                        "surface-variant": "#e5e1e3",
+                        "on-background": "#1c1b1d",
+                        "on-secondary-container": "#5e6572",
+                        "primary-container": "#1a1a2e",
+                        "secondary-container": "#dce2f3",
+                        "surface-dim": "#ddd9db",
+                        "surface-tint": "#5d5c74",
+                        "primary-fixed-dim": "#c6c4df",
+                        "on-tertiary": "#ffffff",
+                        "inverse-surface": "#313032",
+                        "on-tertiary-fixed": "#231b02",
+                        "on-secondary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed-variant": "#404754",
+                        "on-primary-fixed": "#1a1a2e",
+                        "secondary-fixed-dim": "#c0c7d6",
+                        "on-error": "#ffffff",
+                        "inverse-on-surface": "#f4f0f2",
+                        "tertiary-fixed-dim": "#d5c59d",
+                        "on-tertiary-fixed-variant": "#514627",
+                        "surface": "#fcf8fa",
+                        "secondary": "#585f6c",
+                        "tertiary-container": "#b9aa83",
+                        "on-primary-container": "#83829b",
+                        "inverse-primary": "#c6c4df",
+                        "tertiary-fixed": "#f2e1b7"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Newsreader"],
+                        "display": ["Newsreader"],
+                        "body": ["Public Sans"],
+                        "label": ["Public Sans"]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Public Sans', sans-serif;
+        }
+
+        .font-serif {
+            font-family: 'Newsreader', serif;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+
+<body class="bg-surface-bright text-on-surface min-h-screen">
+    <div id="sidebar-container"></div>
+    <div id="navbar-container"></div>
+    <!-- Main Content Canvas -->
+    <main id="main-content" class="pt-24 pb-12 px-10 max-w-[1200px] mx-auto transition-all">
+        <!-- Welcome Banner -->
+        <section class="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div>
+                <h2 id="welcome-text" class="text-4xl font-serif font-black text-primary-container tracking-tight mb-2">Good morning,
+                    Student 👋</h2>
+                <p class="text-secondary font-medium">Your learning journey is at <span
+                        class="text-primary font-bold">85% momentum</span>. Keep it up!</p>
+            </div>
+            <div class="flex items-center gap-3 bg-white p-2 rounded-xl shadow-sm border border-slate-100">
+                <div class="w-12 h-12 rounded-lg bg-primary-container flex items-center justify-center text-white">
+                    <span class="material-symbols-outlined">trending_up</span>
+                </div>
+                <div class="pr-4">
+                    <p class="text-[10px] font-bold text-slate-400 uppercase tracking-tighter leading-none">Global Rank
+                    </p>
+                    <p class="text-xl font-black text-primary-container font-serif">#412</p>
+                </div>
+            </div>
+        </section>
+        <!-- Stats Grid -->
+        <section class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-10">
+            <div
+                class="bg-white p-6 rounded-xl border border-slate-100 shadow-[0_2px_8px_rgba(0,0,0,0.07)] group hover:translate-y-[-2px] transition-transform">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="p-2 bg-primary-fixed rounded-lg text-primary">
+                        <span class="material-symbols-outlined">school</span>
+                    </div>
+                </div>
+                <h3 id="stat-courses" class="text-3xl font-black text-primary-container font-serif">0</h3>
+                <p class="text-sm font-semibold text-secondary">Courses Enrolled</p>
+            </div>
+            <div
+                class="bg-white p-6 rounded-xl border border-slate-100 shadow-[0_2px_8px_rgba(0,0,0,0.07)] group hover:translate-y-[-2px] transition-transform">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="p-2 bg-tertiary-fixed rounded-lg text-tertiary">
+                        <span class="material-symbols-outlined">verified</span>
+                    </div>
+                </div>
+                <h3 class="text-3xl font-black text-primary-container font-serif">2</h3>
+                <p class="text-sm font-semibold text-secondary">Certificates Earned</p>
+            </div>
+            <div
+                class="bg-white p-6 rounded-xl border border-slate-100 shadow-[0_2px_8px_rgba(0,0,0,0.07)] group hover:translate-y-[-2px] transition-transform">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="p-2 bg-secondary-fixed rounded-lg text-secondary">
+                        <span class="material-symbols-outlined">work</span>
+                    </div>
+                </div>
+                <h3 class="text-3xl font-black text-primary-container font-serif">12</h3>
+                <p class="text-sm font-semibold text-secondary">Jobs Applied</p>
+            </div>
+            <div
+                class="bg-white p-6 rounded-xl border border-primary-container/10 shadow-[0_4px_12px_rgba(26,26,46,0.1)] relative overflow-hidden group hover:translate-y-[-2px] transition-transform">
+                <div class="relative z-10">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="p-2 bg-error-container rounded-lg text-error">
+                            <span class="material-symbols-outlined">person</span>
+                        </div>
+                    </div>
+                    <h3 class="text-3xl font-black text-primary-container font-serif">85%</h3>
+                    <p class="text-sm font-semibold text-secondary">Profile Completion</p>
+                </div>
+                <div class="absolute bottom-0 left-0 w-full h-1 bg-surface-container">
+                    <div class="h-full bg-error" style="width: 85%"></div>
+                </div>
+            </div>
+        </section>
+        <!-- Profile Nudge -->
+        <div
+            class="bg-primary-container rounded-2xl p-6 mb-12 flex flex-col md:flex-row items-center gap-6 shadow-xl text-white">
+            <div class="flex-1">
+                <h4 class="text-xl font-serif font-bold mb-1">Your profile is almost career-ready.</h4>
+                <p class="text-on-primary-container text-sm">Add your portfolio link and a professional bio to increase
+                    your interview chances by 40%.</p>
+            </div>
+            <button
+                class="bg-error hover:bg-error/90 text-white px-6 py-3 rounded-lg font-bold text-sm transition-colors whitespace-nowrap shadow-lg">
+                Complete your profile
+            </button>
+        </div>
+        <!-- Continue Learning & Recommended (Asymmetric Grid) -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-12">
+            <!-- Left: Continue Learning -->
+            <div class="lg:col-span-8">
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="text-2xl font-serif font-black text-primary-container">Continue Learning</h3>
+                    <a class="text-sm font-bold text-primary hover:underline decoration-error underline-offset-4 transition-all"
+                        href="#">View All</a>
+                </div>
+                <div id="continue-learning-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Dynamic courses will be rendered here -->
+                </div>
+            </div>
+            <!-- Right: Recommended (Vertical Stack) -->
+            <div class="lg:col-span-4">
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="text-2xl font-serif font-black text-primary-container">Recommended</h3>
+                </div>
+                <div class="space-y-4">
+                    <div
+                        class="flex gap-4 p-3 bg-white rounded-xl border border-slate-100 shadow-sm hover:border-primary-container/20 transition-all cursor-pointer">
+                        <div
+                            class="w-16 h-16 rounded-lg bg-surface-container-high flex-shrink-0 flex items-center justify-center overflow-hidden">
+                            <img alt="Data Science" class="w-full h-full object-cover"
+                                data-alt="abstract data visualization graphs in blue and orange shades on a black screen"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlnTxUfGfWeOLJuA_veDIh56IzeFGaXOxPnF9USCU3oE9f13XM2hzbWQSBHkkrN5jSrgQzwz5cANfM0O-VpQytHJ_gzl6tvj0WG2wASG59rbABm4xGnJftvtQBuMNAy4yRyCzHd4H-xgBGlvzERymoCrbA2yqCflabqtaNXnjTEN5x77sBq0pp6843HEqEnbqoKKeKPvJ8RrVvEoLUt1zYON0VrTwDAruQFhqOFmWZ0BchhGS6F14a3iJo1FaFx3GfV5QdJM2GSO0" />
+                        </div>
+                        <div>
+                            <h5 class="text-sm font-bold text-primary-container leading-tight">Data Science with Python
+                            </h5>
+                            <p class="text-[11px] text-secondary mt-1">12 Weeks • 240 Students</p>
+                            <div class="flex items-center gap-1 mt-1">
+                                <span class="material-symbols-outlined text-tertiary text-[14px]">star</span>
+                                <span class="text-[11px] font-bold">4.9</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="flex gap-4 p-3 bg-white rounded-xl border border-slate-100 shadow-sm hover:border-primary-container/20 transition-all cursor-pointer">
+                        <div
+                            class="w-16 h-16 rounded-lg bg-surface-container-high flex-shrink-0 flex items-center justify-center overflow-hidden">
+                            <img alt="Leadership" class="w-full h-full object-cover"
+                                data-alt="business meeting in a modern conference room with glass walls and bright natural light"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBann0Wfh1NV0l14vXiduCJVbLpmLKlFXZewAgkuLuXtug8x7_QCwmtvYOhIGTTBmeXkm0mQJ-5w08Ijx92gkRGSKdjWHTkWyBzRT2mPDnoMxigyBl4MiWeQxyWDkTl1FYuEcMTqUM_sIB_ghfk_wCgZ1r8JhoRufM23gsoFhEfI6O-aC2YIEza736BjAlI_croABVgP2zOTk0FDKlCLSKRYu7uVYzhU2fN8B1qVj17F63-xzUlECKUJPyuiFrLcAPwcvn5Orq2Q7M" />
+                        </div>
+                        <div>
+                            <h5 class="text-sm font-bold text-primary-container leading-tight">Agile Project Management
+                            </h5>
+                            <p class="text-[11px] text-secondary mt-1">6 Weeks • 1.2k Students</p>
+                            <div class="flex items-center gap-1 mt-1">
+                                <span class="material-symbols-outlined text-tertiary text-[14px]">star</span>
+                                <span class="text-[11px] font-bold">4.7</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="flex gap-4 p-3 bg-white rounded-xl border border-slate-100 shadow-sm hover:border-primary-container/20 transition-all cursor-pointer">
+                        <div
+                            class="w-16 h-16 rounded-lg bg-surface-container-high flex-shrink-0 flex items-center justify-center overflow-hidden">
+                            <img alt="Fullstack" class="w-full h-full object-cover"
+                                data-alt="close up of intricate electronic circuit board with copper pathways and microchips"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQPUFuYxiQirBZztnlpmzLNgBCfL2eOdk3PMru_yx9vUFc8xMlgG__KNjv9MsGeVxJK88edjEQgZdKbVpmbkOohucC8-KqiXTZ_r7bU_RGiPjV25LGiaxoNLGwLMKuluUU-C25Z8QW62gIkTHG3WO5xoTuhcy7JaG6IQg4IfpmNBESqTi1884TPT3vJ0GHGywvsdNn5lZJYmscZlROXSy0HLAlfMHnwZKiA8KY13T1C5aYwCrV6w7MUtkGav0IyaeeI7OYy-ojWUU" />
+                        </div>
+                        <div>
+                            <h5 class="text-sm font-bold text-primary-container leading-tight">Full-Stack Bootcamp 2024
+                            </h5>
+                            <p class="text-[11px] text-secondary mt-1">24 Weeks • Intensive</p>
+                            <div class="flex items-center gap-1 mt-1">
+                                <span class="material-symbols-outlined text-tertiary text-[14px]">star</span>
+                                <span class="text-[11px] font-bold">5.0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Recent Job Applications -->
+        <section
+            class="bg-white rounded-2xl border border-slate-100 shadow-[0_2px_8px_rgba(0,0,0,0.07)] overflow-hidden">
+            <div class="px-8 py-6 border-b border-slate-50 flex items-center justify-between">
+                <h3 class="text-2xl font-serif font-black text-primary-container">Recent Job Applications</h3>
+                <button
+                    class="text-sm font-bold text-secondary flex items-center gap-2 hover:text-primary transition-colors">
+                    Filter by Status <span class="material-symbols-outlined text-[18px]">expand_more</span>
+                </button>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left">
+                    <thead class="bg-slate-50 text-[11px] uppercase tracking-wider text-slate-500 font-bold">
+                        <tr>
+                            <th class="px-8 py-4">Job Title</th>
+                            <th class="px-8 py-4">Company</th>
+                            <th class="px-8 py-4">Date Applied</th>
+                            <th class="px-8 py-4">Status</th>
+                            <th class="px-8 py-4">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-50">
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="px-8 py-5">
+                                <p class="text-sm font-bold text-primary-container">Frontend Developer</p>
+                            </td>
+                            <td class="px-8 py-5">
+                                <div class="flex items-center gap-2">
+                                    <div
+                                        class="w-6 h-6 rounded bg-primary-fixed flex items-center justify-center text-[10px] font-bold text-primary">
+                                        T</div>
+                                    <span class="text-sm text-secondary font-medium">TechNest Nepal</span>
+                                </div>
+                            </td>
+                            <td class="px-8 py-5 text-sm text-secondary">Oct 24, 2023</td>
+                            <td class="px-8 py-5">
+                                <span
+                                    class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-primary-fixed text-primary">
+                                    Interview
+                                </span>
+                            </td>
+                            <td class="px-8 py-5">
+                                <button class="text-error font-bold text-xs hover:underline underline-offset-4">View
+                                    Details</button>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="px-8 py-5">
+                                <p class="text-sm font-bold text-primary-container">UI/UX Designer</p>
+                            </td>
+                            <td class="px-8 py-5">
+                                <div class="flex items-center gap-2">
+                                    <div
+                                        class="w-6 h-6 rounded bg-tertiary-fixed flex items-center justify-center text-[10px] font-bold text-tertiary">
+                                        C</div>
+                                    <span class="text-sm text-secondary font-medium">Creative Hub</span>
+                                </div>
+                            </td>
+                            <td class="px-8 py-5 text-sm text-secondary">Oct 21, 2023</td>
+                            <td class="px-8 py-5">
+                                <span
+                                    class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-secondary-fixed text-secondary">
+                                    Screening
+                                </span>
+                            </td>
+                            <td class="px-8 py-5">
+                                <button class="text-error font-bold text-xs hover:underline underline-offset-4">View
+                                    Details</button>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="px-8 py-5">
+                                <p class="text-sm font-bold text-primary-container">Junior React Engineer</p>
+                            </td>
+                            <td class="px-8 py-5">
+                                <div class="flex items-center gap-2">
+                                    <div
+                                        class="w-6 h-6 rounded bg-surface-container-high flex items-center justify-center text-[10px] font-bold text-on-surface-variant">
+                                        F</div>
+                                    <span class="text-sm text-secondary font-medium">Finleap Solutions</span>
+                                </div>
+                            </td>
+                            <td class="px-8 py-5 text-sm text-secondary">Oct 18, 2023</td>
+                            <td class="px-8 py-5">
+                                <span
+                                    class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-surface-container-low text-on-surface-variant">
+                                    Applied
+                                </span>
+                            </td>
+                            <td class="px-8 py-5">
+                                <button class="text-error font-bold text-xs hover:underline underline-offset-4">View
+                                    Details</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="p-6 bg-slate-50/50 flex justify-center">
+                <button
+                    class="text-sm font-bold text-primary-container hover:text-error transition-all underline-offset-8 underline">See
+                    All Applications</button>
+            </div>
+        </section>
+    <script type="module" src="js/router.js"></script>
+    <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/pages/dashboard.js"></script>
+</body>
+
+</html>
