@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,700;6..72,800&amp;family=Public+Sans:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-bright": "#fcf8fa",
+                        "surface-container-low": "#f6f2f4",
+                        "on-surface-variant": "#47464c",
+                        "on-error-container": "#93000a",
+                        "tertiary": "#695d3c",
+                        "on-primary-fixed-variant": "#45455b",
+                        "on-surface": "#1c1b1d",
+                        "surface-container-highest": "#e5e1e3",
+                        "secondary-fixed": "#dce2f3",
+                        "error-container": "#ffdad6",
+                        "outline-variant": "#c8c5cd",
+                        "on-primary": "#ffffff",
+                        "primary": "#00000b",
+                        "background": "#fcf8fa",
+                        "surface-container-high": "#ebe7e9",
+                        "primary-fixed": "#e2e0fc",
+                        "surface-container": "#f1edef",
+                        "on-tertiary-container": "#493f20",
+                        "error": "#ba1a1a",
+                        "outline": "#78767d",
+                        "on-secondary-fixed": "#151c27",
+                        "surface-variant": "#e5e1e3",
+                        "on-background": "#1c1b1d",
+                        "on-secondary-container": "#5e6572",
+                        "primary-container": "#1a1a2e",
+                        "secondary-container": "#dce2f3",
+                        "surface-dim": "#ddd9db",
+                        "surface-tint": "#5d5c74",
+                        "primary-fixed-dim": "#c6c4df",
+                        "on-tertiary": "#ffffff",
+                        "inverse-surface": "#313032",
+                        "on-tertiary-fixed": "#231b02",
+                        "on-secondary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed-variant": "#404754",
+                        "on-primary-fixed": "#1a1a2e",
+                        "secondary-fixed-dim": "#c0c7d6",
+                        "on-error": "#ffffff",
+                        "inverse-on-surface": "#f4f0f2",
+                        "tertiary-fixed-dim": "#d5c59d",
+                        "on-tertiary-fixed-variant": "#514627",
+                        "surface": "#fcf8fa",
+                        "secondary": "#585f6c",
+                        "tertiary-container": "#b9aa83",
+                        "on-primary-container": "#83829b",
+                        "inverse-primary": "#c6c4df",
+                        "tertiary-fixed": "#f2e1b7"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Newsreader"],
+                        "display": ["Newsreader"],
+                        "body": ["Public Sans"],
+                        "label": ["Public Sans"]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Public Sans', sans-serif;
+        }
+
+        .font-serif {
+            font-family: 'Newsreader', serif;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+
+<body class="bg-surface-bright text-on-surface">
+    <div id="navbar-container"></div>
+    <div id="sidebar-container"></div>
+    <!-- Main Content Canvas -->
+    <main id="main-content" class="pt-16 min-h-screen transition-all">
+        <div class="max-w-[1200px] mx-auto px-10 py-12">
+            <div class="grid grid-cols-12 gap-10">
+                <!-- Left Column: Course Details -->
+                <div class="col-span-8">
+                    <!-- Hero Section -->
+                    <div class="mb-10">
+                        <nav class="flex items-center gap-2 text-sm text-slate-500 mb-6">
+                            <a class="hover:text-primary" href="#">Courses</a>
+                            <span class="material-symbols-outlined text-xs"
+                                data-icon="chevron_right">chevron_right</span>
+                            <a class="hover:text-primary" href="#">Engineering</a>
+                            <span class="material-symbols-outlined text-xs"
+                                data-icon="chevron_right">chevron_right</span>
+                            <span id="course-title-breadcrumb" class="text-slate-900 font-medium">Advanced Full-Stack Engineering</span>
+                        </nav>
+                        <div class="relative rounded-xl overflow-hidden aspect-[21/9] mb-8 group bg-slate-100">
+                            <img id="course-hero-img" alt="Course Hero Image"
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                data-alt="modern laptop displaying complex code in a dimly lit, professional office environment with soft bokeh lights"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxjNysYML6k-_dOVH11Wj9aDKdwLE4PgfeGcq8VtALVScoZIn4wPW-2sD1UfuEYjpeuGhHf7RnvZOoG-EafSga5l0UCqOZIsIq29Bz9-F0eQoCtO5DlUwc-9M0VMCyzWS1EbLp05eY1qqJ2d0coFerxS7ybu5Vwf4ESVV7Ph9I1z_GW57UL6VWfzu__ja74YMTuVCUwJm7vXbOsFI6RRGNw9R3ZGyxUzSRoIr4TncrACQ2mzDn1YFCmQwLXD2q-1BEOVmXVYxQpLE" />
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent">
+                            </div>
+                            <div class="absolute bottom-0 left-0 p-8">
+                                <span id="course-category-badge"
+                                    class="bg-primary-container text-on-primary-container text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-3 inline-block">Professional
+                                    Certification</span>
+                                <h1 id="course-hero-title" class="font-serif text-4xl font-extrabold text-white tracking-tight">Advanced
+                                    Full-Stack Engineering with React</h1>
+                            </div>
+                        </div>
+                        <!-- Meta Info Row -->
+                        <div class="flex flex-wrap items-center gap-8 py-6 border-y border-slate-100">
+                            <div class="flex items-center gap-3">
+                                <img id="course-instructor-img" alt="Instructor"
+                                    class="h-12 w-12 rounded-full object-cover border-2 border-white shadow-sm"
+                                    data-alt="close-up portrait of a professional woman wearing glasses and a smart blazer, smiling confidently"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZtd4hCbegKI0JbLEujLc53R0D2Wg1er773dDkRiU7yjvDJm7Vhb9sczAObDEOQXqLUsfY7GUtDbJE47QEeftMMbwGx4-cXNW-0a15KaEHRZgcS3X259g4mP39f0ZPLq5zrU1mkSIqfu3IyOHgbLi7Qkdqso4RIUJ8mDuEG0esuGpBIvsBQZ4CFKx91aD6koBaBOWO4LiSrTV3YQDcRL2WKFh_xhD7ELY3esLugR-1EoI2ThMdM1Yn8sX5MjrLGIE5f2lVxQ95Ivs" />
+                                <div>
+                                    <p class="text-xs text-slate-500 font-medium">Instructor</p>
+                                    <p id="course-instructor-name" class="text-sm font-bold text-slate-900">Dr. Ananya Sharma</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div class="flex text-amber-400">
+                                    <span class="material-symbols-outlined" data-icon="star"
+                                        data-weight="fill">star</span>
+                                </div>
+                                <span id="course-rating" class="font-bold text-slate-900">4.9</span>
+                                <span id="course-reviews" class="text-slate-500 text-sm">(1,240 reviews)</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="material-symbols-outlined text-slate-400" data-icon="group">group</span>
+                                <span class="text-slate-900 font-semibold"><span id="course-enrolled">2,450</span> <span
+                                        class="text-slate-500 font-normal">enrolled</span></span>
+                            </div>
+                            <div class="flex items-center gap-2 ml-auto">
+                                <span class="material-symbols-outlined text-slate-400"
+                                    data-icon="language">language</span>
+                                <span class="text-slate-900 font-medium text-sm">English, Nepali</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Tabs & Content -->
+                    <div class="mb-12">
+                        <div class="flex border-b border-slate-200 mb-8 overflow-x-auto">
+                            <button
+                                class="px-8 py-4 text-sm font-bold border-b-2 border-primary-container text-primary-container whitespace-nowrap">Overview</button>
+                            <button
+                                class="px-8 py-4 text-sm font-medium text-slate-500 hover:text-slate-800 border-b-2 border-transparent transition-colors whitespace-nowrap">Curriculum</button>
+                            <button
+                                class="px-8 py-4 text-sm font-medium text-slate-500 hover:text-slate-800 border-b-2 border-transparent transition-colors whitespace-nowrap">Reviews</button>
+                            <button
+                                class="px-8 py-4 text-sm font-medium text-slate-500 hover:text-slate-800 border-b-2 border-transparent transition-colors whitespace-nowrap">Projects</button>
+                        </div>
+                        <div class="space-y-8 animate-fade-in">
+                            <section>
+                                <h3 class="font-serif text-2xl font-bold text-slate-900 mb-4">About this course</h3>
+                                <div id="course-description" class="text-slate-600 leading-relaxed space-y-4">
+                                    <p>Master the art of building scalable, production-ready web applications. This
+                                        comprehensive program is designed for engineers looking to transition into
+                                        senior roles. We cover the entire lifecycle of a modern application, from
+                                        architecting a robust React frontend to deploying a secure Node.js microservices
+                                        ecosystem.</p>
+                                    <p>Our curriculum is developed in collaboration with top tech firms in Nepal and the
+                                        region, ensuring that the skills you learn are exactly what's in demand in
+                                        today's high-stakes job market.</p>
+                                </div>
+                            </section>
+                            <section>
+                                <h3 class="font-serif text-2xl font-bold text-slate-900 mb-6">Course Curriculum</h3>
+                                <div class="space-y-3">
+                                    <!-- Accordion Item 1 -->
+                                    <div class="border border-slate-200 rounded-lg overflow-hidden bg-white">
+                                        <div
+                                            class="flex items-center justify-between p-4 cursor-pointer hover:bg-slate-50 transition-colors">
+                                            <div class="flex items-center gap-4">
+                                                <div
+                                                    class="h-8 w-8 rounded bg-slate-100 flex items-center justify-center text-slate-500 font-bold text-xs">
+                                                    01</div>
+                                                <span class="font-bold text-slate-900">Module 1: Introduction &amp;
+                                                    Architecture</span>
+                                            </div>
+                                            <div class="flex items-center gap-4 text-slate-500 text-sm">
+                                                <span>4 Lessons</span>
+                                                <span>45m</span>
+                                                <span class="material-symbols-outlined text-sm"
+                                                    data-icon="expand_more">expand_more</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Accordion Item 2 -->
+                                    <div class="border border-slate-200 rounded-lg overflow-hidden bg-slate-50">
+                                        <div
+                                            class="flex items-center justify-between p-4 cursor-pointer border-b border-slate-200">
+                                            <div class="flex items-center gap-4">
+                                                <div
+                                                    class="h-8 w-8 rounded bg-primary-container flex items-center justify-center text-white font-bold text-xs">
+                                                    02</div>
+                                                <span class="font-bold text-slate-900">Module 2: Advanced State
+                                                    Management</span>
+                                            </div>
+                                            <div class="flex items-center gap-4 text-slate-500 text-sm">
+                                                <span class="text-primary-container font-semibold">Active</span>
+                                                <span>8 Lessons</span>
+                                                <span>2h 15m</span>
+                                                <span class="material-symbols-outlined text-sm"
+                                                    data-icon="expand_less">expand_less</span>
+                                            </div>
+                                        </div>
+                                        <div class="p-4 space-y-3 bg-white">
+                                            <div
+                                                class="flex items-center justify-between text-sm py-2 group cursor-pointer">
+                                                <div class="flex items-center gap-3">
+                                                    <span
+                                                        class="material-symbols-outlined text-slate-400 group-hover:text-primary-container"
+                                                        data-icon="play_circle">play_circle</span>
+                                                    <span
+                                                        class="text-slate-600 group-hover:text-slate-900">Understanding
+                                                        Redux Toolkit vs Context API</span>
+                                                </div>
+                                                <span class="text-slate-400">15:20</span>
+                                            </div>
+                                            <div
+                                                class="flex items-center justify-between text-sm py-2 group cursor-pointer">
+                                                <div class="flex items-center gap-3">
+                                                    <span
+                                                        class="material-symbols-outlined text-slate-400 group-hover:text-primary-container"
+                                                        data-icon="play_circle">play_circle</span>
+                                                    <span class="text-slate-600 group-hover:text-slate-900">Implementing
+                                                        Custom Hooks for Global State</span>
+                                                </div>
+                                                <span class="text-slate-400">22:45</span>
+                                            </div>
+                                            <div
+                                                class="flex items-center justify-between text-sm py-2 group cursor-pointer">
+                                                <div class="flex items-center gap-3">
+                                                    <span
+                                                        class="material-symbols-outlined text-slate-400 group-hover:text-primary-container"
+                                                        data-icon="description">description</span>
+                                                    <span class="text-slate-600 group-hover:text-slate-900">Resource:
+                                                        State Pattern Cheatsheet</span>
+                                                </div>
+                                                <span class="text-primary-container font-medium">Download PDF</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Accordion Item 3 -->
+                                    <div class="border border-slate-200 rounded-lg overflow-hidden bg-white">
+                                        <div
+                                            class="flex items-center justify-between p-4 cursor-pointer hover:bg-slate-50 transition-colors">
+                                            <div class="flex items-center gap-4">
+                                                <div
+                                                    class="h-8 w-8 rounded bg-slate-100 flex items-center justify-center text-slate-500 font-bold text-xs">
+                                                    03</div>
+                                                <span class="font-bold text-slate-900">Module 3: Database Design &amp;
+                                                    Optimization</span>
+                                            </div>
+                                            <div class="flex items-center gap-4 text-slate-500 text-sm">
+                                                <span>6 Lessons</span>
+                                                <span>1h 40m</span>
+                                                <span class="material-symbols-outlined text-sm"
+                                                    data-icon="expand_more">expand_more</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+                <!-- Right Column: Sidebar Card -->
+                <div class="col-span-4">
+                    <div class="sticky top-24">
+                        <div
+                            class="bg-white rounded-xl border border-slate-200 shadow-[0_2px_8px_rgba(0,0,0,0.07)] overflow-hidden">
+                            <div class="p-8">
+                                <div class="flex items-baseline gap-2 mb-6">
+                                    <span id="course-price" class="text-4xl font-extrabold text-slate-900">Rs. 4,500</span>
+                                    <span id="course-old-price" class="text-slate-400 line-through text-lg">Rs. 12,000</span>
+                                </div>
+                                <button id="enroll-btn"
+                                    class="w-full bg-primary-container text-white font-bold py-4 rounded-lg shadow-sm hover:opacity-90 active:scale-[0.98] transition-all mb-4">
+                                    Enroll Now
+                                </button>
+                                <button
+                                    class="w-full border border-slate-200 text-slate-900 font-bold py-4 rounded-lg hover:bg-slate-50 transition-colors mb-8">
+                                    Add to Wishlist
+                                </button>
+                                <div class="space-y-6">
+                                    <div>
+                                        <h4 class="text-sm font-bold text-slate-900 mb-3 uppercase tracking-wider">What
+                                            you'll learn</h4>
+                                        <ul class="space-y-3">
+                                            <li class="flex items-start gap-3 text-sm text-slate-600">
+                                                <span class="material-symbols-outlined text-primary-container text-lg"
+                                                    data-icon="check_circle">check_circle</span>
+                                                <span>Build enterprise-scale React applications with Next.js</span>
+                                            </li>
+                                            <li class="flex items-start gap-3 text-sm text-slate-600">
+                                                <span class="material-symbols-outlined text-primary-container text-lg"
+                                                    data-icon="check_circle">check_circle</span>
+                                                <span>Design secure RESTful and GraphQL APIs</span>
+                                            </li>
+                                            <li class="flex items-start gap-3 text-sm text-slate-600">
+                                                <span class="material-symbols-outlined text-primary-container text-lg"
+                                                    data-icon="check_circle">check_circle</span>
+                                                <span>Master NoSQL and Relational database schemas</span>
+                                            </li>
+                                            <li class="flex items-start gap-3 text-sm text-slate-600">
+                                                <span class="material-symbols-outlined text-primary-container text-lg"
+                                                    data-icon="check_circle">check_circle</span>
+                                                <span>CI/CD pipelines and Cloud deployment (AWS/Vercel)</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="pt-6 border-t border-slate-100">
+                                        <h4 class="text-sm font-bold text-slate-900 mb-3 uppercase tracking-wider">
+                                            Requirements</h4>
+                                        <ul class="space-y-2">
+                                            <li class="flex items-center gap-3 text-sm text-slate-500">
+                                                <span class="w-1.5 h-1.5 rounded-full bg-slate-300"></span>
+                                                <span>Solid understanding of JavaScript (ES6+)</span>
+                                            </li>
+                                            <li class="flex items-center gap-3 text-sm text-slate-500">
+                                                <span class="w-1.5 h-1.5 rounded-full bg-slate-300"></span>
+                                                <span>Basic knowledge of HTML &amp; CSS</span>
+                                            </li>
+                                            <li class="flex items-center gap-3 text-sm text-slate-500">
+                                                <span class="w-1.5 h-1.5 rounded-full bg-slate-300"></span>
+                                                <span>A computer with at least 8GB RAM</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="bg-slate-50 p-6 flex items-center justify-center gap-4 border-t border-slate-100">
+                                <span class="material-symbols-outlined text-slate-400"
+                                    data-icon="verified_user">verified_user</span>
+                                <p class="text-xs text-slate-500 font-medium leading-tight">30-Day Money-Back
+                                    Guarantee<br />Lifetime Access to Materials</p>
+                            </div>
+                        </div>
+                        <div class="mt-6 flex items-center justify-between px-2">
+                            <button
+                                class="flex items-center gap-2 text-slate-500 hover:text-primary transition-colors text-sm font-medium">
+                                <span class="material-symbols-outlined text-lg" data-icon="share">share</span>
+                                Share Course
+                            </button>
+                            <button
+                                class="flex items-center gap-2 text-slate-500 hover:text-primary transition-colors text-sm font-medium">
+                                <span class="material-symbols-outlined text-lg" data-icon="flag">flag</span>
+                                Report Course
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Asymmetric Bento Section for Career Impact -->
+            <section class="mt-24">
+                <h3 class="font-serif text-3xl font-extrabold text-slate-900 mb-8 text-center">Your Career Trajectory
+                </h3>
+                <div class="grid grid-cols-4 grid-rows-2 gap-4 h-[500px]">
+                    <div
+                        class="col-span-2 row-span-2 bg-primary-container rounded-2xl p-8 flex flex-col justify-end text-white overflow-hidden relative">
+                        <img alt="Collaborative Team"
+                            class="absolute inset-0 w-full h-full object-cover opacity-30 mix-blend-overlay"
+                            data-alt="team of diverse professionals collaborating around a laptop in a bright, modern glass office space"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtBWXwbBZHpkVetqnLrLyim1AdYtx-YxpqMRC_2NbQODKqKxWUL75RxBIX97xFD5HHN3pK0ItQYz0DgC0jYEy2HfxAIHgDLlH9L4KnE6iBUEIsXYPP9Lu3JYRtJdn2Y74jF5fg5FWDNv6KUB9GRm1_V9MiUO2lRZhdV_YySMMh38YTcG28_BoDn9aJLMMadRGRRl107THXXOSrBLkEZQz-h6rhkHSoBxWcdBcP2YwFSotIsZ-5O_FuAVcP6yAPiBrNiAMstkBB2yc" />
+                        <div class="relative z-10">
+                            <h4 class="text-2xl font-bold mb-4">Direct Industry Placement</h4>
+                            <p class="text-slate-300 mb-6">Graduates from this course have been hired by top tech firms
+                                like CloudFactory, Logpoint, and F1Soft. Our placement support team works with you
+                                directly.</p>
+                            <div class="flex items-center gap-4">
+                                <span
+                                    class="bg-white/10 backdrop-blur px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest border border-white/20">92%
+                                    Placement Rate</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="col-span-1 row-span-1 bg-white rounded-2xl border border-slate-200 p-8 flex flex-col justify-center text-center">
+                        <span class="material-symbols-outlined text-4xl text-primary-container mb-4"
+                            data-icon="trending_up">trending_up</span>
+                        <h5 class="font-bold text-slate-900">45% Avg Salary Hike</h5>
+                        <p class="text-xs text-slate-500 mt-2">Based on 2023 alumni survey</p>
+                    </div>
+                    <div
+                        class="col-span-1 row-span-1 bg-surface-container-high rounded-2xl border border-slate-200 p-8 flex flex-col justify-center text-center">
+                        <span class="material-symbols-outlined text-4xl text-primary-container mb-4"
+                            data-icon="workspace_premium">workspace_premium</span>
+                        <h5 class="font-bold text-slate-900">University Credits</h5>
+                        <p class="text-xs text-slate-500 mt-2">Recognized by 4 local partner universities</p>
+                    </div>
+                    <div
+                        class="col-span-2 row-span-1 bg-white rounded-2xl border border-slate-200 p-8 flex items-center gap-6">
+                        <div class="flex -space-x-4">
+                            <img alt="User" class="w-12 h-12 rounded-full border-4 border-white object-cover"
+                                data-alt="headshot of a confident professional woman with a soft background"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuACvQtXFDFw143pcEZkDa8fv8_ReJRtG2ZCwUk5AUTA2gSigfaagUVY11_bA1Gc6Ue207mA3PzulevzWXiI_a8DAYixkBkWbSsanj8KZ4UvY6zoMarTZnvECepBP00Hidpd9M2i3yQYAN8QAvXB5DxTk9mxvF7PcJ3Ux1CbU-LLeR1RNzzfJXZT8YPLpoSjpIhjMCmp6ZLRNcXyr1s3P-3-HJ0-o5fhwvFwsTnkKwf0-07MIXERDq5jQrj5HwRTlPNzAH4ce6YwSgU" />
+                            <img alt="User" class="w-12 h-12 rounded-full border-4 border-white object-cover"
+                                data-alt="headshot of a smiling young man in a clean environment"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2p9rR_2GEDlAgeaEQS5qZkK-3xk-H5gSHk_s0VTF0JHKZJ4UsFSBAb5ULHqw0mGxPd13hje680BC-eM7W7dp7OPJTM1gONmFqF4pluRbA6l01WajCEh6PvNX-TEHmfpxBvA3BwY0gZG3ejCbclFfN1lzGWNJGeY9KnqR88M8Mq8rzjWQIY2gzHUBdpQ7ftzSbhEnejGZtfOBSgUc7ttZ34Mccb2nKYHUX2nNPPJjzg_3ExXjPQPPhoZxCauw2Thr-UZMwNqWSuVs" />
+                            <img alt="User" class="w-12 h-12 rounded-full border-4 border-white object-cover"
+                                data-alt="headshot of a smiling professional woman"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDB3QHZbnvEvluoXTZweT-bP7VecqEhiRUn9K-G9h5AagoyrHG4-tioJx1bKlpfHXcg4Br7k2I-D8TLUG7t278z0iDLi7tUHEkEwMMmzKy_uq8LyM2TYH58DfGxUssIQixGIy2uB0PlxFLEAN_HeBePIopKnBgN1hytEYv8FkK5XSzt_RdQynv8LR7qYslJJd_7vb7xTeSkm3m8bgmYQacDZSWo1zibHb559cQLOrBlsET8JCsWbY8IDnEhDV7NDOnlh3tUw_gvLKU" />
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-slate-900">Join a vibrant community</h5>
+                            <p class="text-sm text-slate-500">Access our exclusive Discord of 5,000+ developers</p>
+                        </div>
+                        <button class="ml-auto text-primary-container font-bold text-sm flex items-center gap-1 group">
+                            Learn More
+                            <span
+                                class="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1"
+                                data-icon="arrow_forward">arrow_forward</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <!-- Footer for Professional Closure -->
+    <footer id="main-footer" class="bg-slate-950 text-white py-12 px-10 transition-all">
+        <div class="max-w-[1200px] mx-auto grid grid-cols-4 gap-12">
+            <div class="col-span-2">
+                <h4 class="text-lg font-black mb-6">LeapFrog Connect</h4>
+                <p class="text-slate-400 max-w-sm text-sm leading-relaxed">
+                    Bridging the gap between academic theory and industry reality. We empower the next generation of
+                    Nepalese engineers with world-class technical education.
+                </p>
+            </div>
+            <div>
+                <h5 class="text-sm font-bold uppercase tracking-widest mb-6">Resources</h5>
+                <ul class="space-y-4 text-sm text-slate-400">
+                    <li><a class="hover:text-white transition-colors" href="#">Documentation</a></li>
+                    <li><a class="hover:text-white transition-colors" href="#">Help Center</a></li>
+                    <li><a class="hover:text-white transition-colors" href="#">Community Guidelines</a></li>
+                    <li><a class="hover:text-white transition-colors" href="#">Partner Schools</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="text-sm font-bold uppercase tracking-widest mb-6">Connect</h5>
+                <ul class="space-y-4 text-sm text-slate-400">
+                    <li><a class="hover:text-white transition-colors" href="#">LinkedIn</a></li>
+                    <li><a class="hover:text-white transition-colors" href="#">Twitter</a></li>
+                    <li><a class="hover:text-white transition-colors" href="#">Instagram</a></li>
+                    <li><a class="hover:text-white transition-colors" href="#">Support Email</a></li>
+                </ul>
+            </div>
+        </div>
+        <div
+            class="max-w-[1200px] mx-auto pt-12 mt-12 border-t border-slate-900 flex justify-between items-center text-xs text-slate-600">
+            <p>© 2024 LeapFrog Connect. All rights reserved.</p>
+            <div class="flex gap-6">
+                <a class="hover:text-slate-400" href="#">Privacy Policy</a>
+                <a class="hover:text-slate-400" href="#">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+    <script type="module" src="js/router.js"></script>
+    <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/pages/course-details.js"></script>
+</body>
+
+</html>
