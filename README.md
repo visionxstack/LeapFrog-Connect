@@ -576,8 +576,12 @@ React + Vite (Vercel)
 ---
 
 ## 🤝 Team
+Team **BlackRoot**
+Vision KC<br>
+Pranish Khanal<br>
+Rachana Tiwari
 
-Built with ❤️ for Nepal at Hackathon 2025.
+Built for Relay Hack 2026
 
 ---
 
