@@ -576,7 +576,7 @@ React + Vite (Vercel)
 ---
 
 ## 🤝 Team
-Team **BlackRoot**
+Team **BlackRoot**<br>
 Vision KC<br>
 Pranish Khanal<br>
 Rachana Tiwari
