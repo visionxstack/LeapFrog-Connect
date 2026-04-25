@@ -11,7 +11,7 @@ A full-stack, AI-powered platform connecting Nepali students with employers thro
 - [Overview](#-overview)
 - [User Roles](#-user-roles)
 - [Tech Stack](#-tech-stack)
-- [AI Features](#-ai-features-claude-api)
+- [AI Features](#-ai-features-groq-api)
 - [Database Schema](#-database-schema-postgresql--supabase)
 - [API Endpoints](#-api-endpoints)
 - [Pages & UI](#-pages--ui-structure)
@@ -33,7 +33,7 @@ Student Learns → Takes Quiz → Earns Certificate → Applies for Jobs → Get
 
 **Key differentiators:**
 - ✅ Verified, quiz-based certificates employers can trust
-- 🤖 Claude AI-powered skill gap analysis and candidate matching
+- 🤖 Groq AI-powered skill gap analysis and candidate matching
 - 🇳🇵 Built for Nepal's job market and tech ecosystem
 - 📊 Full recruitment pipeline management for companies
 
@@ -69,7 +69,7 @@ Student Learns → Takes Quiz → Earns Certificate → Applies for Jobs → Get
 | Frontend | React + Vite + Tailwind CSS | Fast, responsive UI with modern tooling |
 | Backend | Python FastAPI | High-performance async REST API |
 | Database | PostgreSQL (Supabase) | Relational DB with auth & realtime |
-| AI Engine | Claude API (Anthropic) | Skill gap analysis, talent matching, profile builder |
+| AI Engine | Groq API | Skill gap analysis, talent matching, profile builder |
 | Frontend Host | Vercel | Zero-config deployment for React/Vite |
 | Backend Host | Render / Railway | FastAPI container deployment |
 | DB Host | Supabase Cloud | Managed PostgreSQL + Auth + Storage |
@@ -78,13 +78,13 @@ Student Learns → Takes Quiz → Earns Certificate → Applies for Jobs → Get
 - **FastAPI** — Async Python, 10x faster than Django REST, auto-generates OpenAPI docs
 - **Supabase PostgreSQL** — Relational integrity for jobs/applications, built-in Row Level Security, free tier
 - **Vite** — 10–100x faster dev server vs Create React App, instant hot module replacement
-- **Claude API** — Best-in-class reasoning for skill gap analysis and candidate matching
+- **Groq API** — Ultra-fast LLM inference for skill gap analysis and candidate matching
 
 ---
 
-## 🤖 AI Features (Claude API)
+## 🤖 AI Features (Groq API)
 
-All AI features are FastAPI endpoints that call the Anthropic Claude API.
+All AI features are FastAPI endpoints that call the Groq API using the `groq` Python SDK.
 
 ### 1. Skill Gap Analyzer
 `POST /ai/skill-gap`
@@ -92,15 +92,15 @@ All AI features are FastAPI endpoints that call the Anthropic Claude API.
 Student selects a job → AI compares their skill profile against job requirements → Returns structured gap analysis with course recommendations.
 
 ```python
-from anthropic import Anthropic
+from groq import Groq
 
 @router.post('/ai/skill-gap')
 async def skill_gap_analyzer(job_id: str, user=Depends(get_current_user)):
     student = get_student_profile(user.id)
     job = get_job(job_id)
-    client = Anthropic()
-    response = client.messages.create(
-        model="claude-opus-4-5",
+    client = Groq()
+    response = client.chat.completions.create(
+        model="llama-3.3-70b-versatile",
         max_tokens=1000,
         messages=[{
             "role": "user",
@@ -321,7 +321,7 @@ leapfrog-backend/
 │   ├── students.py       # /students endpoints
 │   ├── jobs.py           # /jobs endpoints
 │   ├── courses.py        # /courses endpoints
-│   ├── ai.py             # /ai endpoints (Claude API)
+│   ├── ai.py             # /ai endpoints (Groq API)
 │   └── admin.py          # /admin endpoints
 ├── models/
 │   ├── user.py           # Pydantic schemas
@@ -330,7 +330,7 @@ leapfrog-backend/
 └── utils/
     ├── auth.py           # JWT verification
     ├── supabase.py       # Supabase client
-    └── ai.py             # Claude API helpers
+    └── ai.py             # Groq API helpers
 ```
 
 ### Frontend (React + Vite)
@@ -368,7 +368,7 @@ leapfrog-frontend/
 - Node.js 18+
 - Python 3.11+
 - [Supabase](https://supabase.com) account (free)
-- [Anthropic API key](https://console.anthropic.com)
+- [Groq API key](https://console.groq.com)
 - Git
 
 ### 1. Clone the Repository
@@ -408,7 +408,7 @@ source venv/bin/activate        # Windows: venv\Scripts\activate
 # Install dependencies
 pip install fastapi uvicorn[standard]
 pip install supabase python-dotenv
-pip install anthropic
+pip install groq
 pip install python-jose[cryptography] passlib[bcrypt]
 pip install httpx pydantic pydantic-settings
 
@@ -433,8 +433,8 @@ SUPABASE_URL=https://xyzproject.supabase.co
 SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
 SUPABASE_SERVICE_ROLE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
 
-# Anthropic
-ANTHROPIC_API_KEY=sk-ant-api03-...
+# Groq
+GROQ_API_KEY=gsk_...
 
 # App
 ENVIRONMENT=development
@@ -459,7 +459,7 @@ VITE_API_BASE_URL=http://localhost:8000/api/v1
 fastapi==0.111.0
 uvicorn[standard]==0.29.0
 supabase==2.4.6
-anthropic==0.28.0
+groq==0.9.0
 python-dotenv==1.0.1
 python-jose[cryptography]==3.3.0
 passlib[bcrypt]==1.7.4
@@ -516,7 +516,7 @@ React + Vite (Vercel)
       │
       └─── REST API calls ───► FastAPI (Render)
                                      │
-                                     └──► Claude API (AI features)
+                                     └──► Groq API (AI features)
 ```
 
 ---
@@ -546,7 +546,7 @@ React + Vite (Vercel)
 ### Day 3 — AI Features + Polish + Deploy
 | Time | Task |
 |---|---|
-| AM | AI Skill Gap Analyzer → FastAPI `/ai/skill-gap` → Claude integration |
+| AM | AI Skill Gap Analyzer → FastAPI `/ai/skill-gap` → Groq integration |
 | AM | AI Talent Matcher → `/ai/match-candidates` → ranked candidate UI |
 | AM | AI Profile Builder → `/ai/build-profile` → auto-populate student bio |
 | PM | UI polish → mobile responsive → loading states → error handling |
