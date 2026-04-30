@@ -1,0 +1,7 @@
+{
+  "rewrites": [{ "source": "/(.*)", "destination": "/" }],
+  "env": {
+    "VITE_API_URL": "https://your-render-url.onrender.com"
+  }
+}
+
