@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: 'Public Sans', sans-serif;
+    background-color: #fcf8fa;
+    color: #1c1b1d;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/70 backdrop-blur-md border border-white/20 shadow-glass;
+  }
+  .gradient-btn {
+    @apply bg-gradient-to-r from-navy to-primary-container text-white px-6 py-3 rounded-lg font-semibold shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5;
+  }
+  .card-hover {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-card;
+  }
+}
