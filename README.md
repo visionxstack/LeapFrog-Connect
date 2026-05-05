@@ -6,6 +6,11 @@ It may contain bugs, unfinished features, or unstable behavior.
 **Do not use this in production environments.**  
 I'm still working on improving reliability, fixing issues, and refining the overall architecture.
 
+# Deployment 
+- Backend : [Render](https://render.com/)
+- Frontend : [Vercel](https://vercel.com/)
+- Storage : [Supabase](https://supabase.com/)
+
 # Under Testing
 
 ## Kill Backend (8000)
